@@ -9,9 +9,6 @@ import javax.persistence.*;
 
 @Entity
 @Table
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Car {
 
@@ -22,25 +19,36 @@ public class Car {
     private String nomeModello;
     private String tipo;
 
+    public Car() {
+    }
 
+    public Car(long id_car, String nomeModello, String tipo) {
+        this.id_car = id_car;
+        this.nomeModello = nomeModello;
+        this.tipo = tipo;
+    }
 
+    public long getId_car() {
+        return id_car;
+    }
 
+    public void setId_car(long id_car) {
+        this.id_car = id_car;
+    }
 
+    public String getNomeModello() {
+        return nomeModello;
+    }
 
+    public void setNomeModello(String nomeModello) {
+        this.nomeModello = nomeModello;
+    }
 
+    public String getTipo() {
+        return tipo;
+    }
 
-
-
-
-
-    
-    /*
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
-    private String modelName;
-    private String type;
-    */
-
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 }
