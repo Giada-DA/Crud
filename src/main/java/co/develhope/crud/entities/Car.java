@@ -11,7 +11,7 @@ public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id_car;
+    private long Id;
 
     private String nomeModello;
     private String tipo;
@@ -19,18 +19,18 @@ public class Car {
     public Car() {
     }
 
-    public Car(long id_car, String nomeModello, String tipo) {
-        this.id_car = id_car;
+    public Car(long Id, String nomeModello, String tipo) {
+        this.Id = Id;
         this.nomeModello = nomeModello;
         this.tipo = tipo;
     }
 
-    public long getId_car() {
-        return id_car;
+    public long getId() {
+        return Id;
     }
 
-    public void setId_car(long id_car) {
-        this.id_car = id_car;
+    public void setId(long Id) {
+        this.Id = Id;
     }
 
     public String getNomeModello() {

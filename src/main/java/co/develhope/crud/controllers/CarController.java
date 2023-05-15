@@ -28,17 +28,17 @@ public class CarController {
     }
 
     //restituisce una sola auto tramite id
-    @GetMapping("/{id_car}")
-    public Car getSingle(@PathVariable long id_car){
-        return carRepository.existsById(id_car) ? carRepository.getById(id_car) : new Car();
+    @GetMapping("/{id}")
+    public Car getSingle(@PathVariable long Id){
+        return carRepository.existsById(Id) ? carRepository.getById(Id) : new Car();
     }
 
     //modificare i dati di una macchina
-    @PutMapping("/{id_car}")
-    public Car update(@PathVariable long id_car, @RequestParam String tipo){
+    @PutMapping("/{id}")
+    public Car update(@PathVariable long Id, @RequestParam String tipo){
         Car car;
-        if (carRepository.existsById(id_car)){
-            car = carRepository.getById(id_car);
+        if (carRepository.existsById(Id)){
+            car = carRepository.getById(Id);
             car.setTipo(tipo);
             car = carRepository.saveAndFlush(car);
         }else{
@@ -48,10 +48,10 @@ public class CarController {
     }
 
     //eliminare una singola auto
-    @DeleteMapping("/{id_car}")
-    public void delete(@PathVariable long id_car, HttpServletResponse risposta){
-        if (carRepository.existsById(id_car)){
-            carRepository.deleteById(id_car);
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable long Id, HttpServletResponse risposta){
+        if (carRepository.existsById(Id)){
+            carRepository.deleteById(Id);
         }else{
             risposta.setStatus(409);
         }
